@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express()
-const PORT = 8081;
+const PORT = process.env.PORT || 80
+
 
 app.use(express.json())
 app.listen(
   PORT,
-  () => console.log(`Its alive on http://localhost:${PORT}`)
+  () => console.log(`Its alive on https://locationpicker.herokuapp.com/:${PORT}`)
 );
 
 
