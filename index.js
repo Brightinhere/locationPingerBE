@@ -8,9 +8,10 @@ app.listen(
   () => console.log(`Its alive on https://locationpicker.herokuapp.com/:${PORT}`)
 );
 
+
 app.get('/pong', (req, res) => {
   res.status(200).send({
-    location: "Location"
+    location: "Locatie"
   })
 })
 
