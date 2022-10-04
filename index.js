@@ -10,7 +10,7 @@ app.listen(
 
 app.get('/pong', (req, res) => {
   res.status(200).send({
-    location: "Locatie"
+    location: "Location"
   })
 })
 
