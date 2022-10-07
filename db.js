@@ -1,8 +1,9 @@
 import { MongoClient } from "mongodb";
-// import { MONGO_SRV } from ".env"
+import * as dotenv from 'dotenv';
+dotenv.config()
 
 export default async function saveLocation(name, location) {
-    const uri = "mongodb+srv://admin:qlSn74Ehgjkmw26e@cluster0.gpiuvk9.mongodb.net/?retryWrites=true&w=majority"
+    const uri = process.env.MONGO_SRV
     const client = new MongoClient(uri);
     try {
         const database = client.db("locationPinger");
