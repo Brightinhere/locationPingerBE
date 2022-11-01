@@ -25,7 +25,6 @@ export async function saveLocation(location, name) {
     }
 }
 
-
 export async function saveUser(user) {
     const client = getClient()
     try {
