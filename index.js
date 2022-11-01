@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 const PORT = process.env.PORT || 8081
-import {saveLocation, saveUser} from './db.js'
+import {getLast, saveLocation, saveUser} from './db.js'
 app.use(express.json())
 
 app.listen(
@@ -13,6 +13,15 @@ app.get('/pong', (req, res) => {
   res.status(200).send({
     location: "Locatie"
   })
+})
+
+app.get('/getLocation', async (req, res) => {
+  getLast().then((data) => {
+    res.status(200).send({
+      location: data
+    })
+  })
+
 })
 
 

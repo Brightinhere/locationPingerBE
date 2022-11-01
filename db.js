@@ -25,6 +25,23 @@ export async function saveLocation(location, name) {
     }
 }
 
+export async function getLast(){
+    const client = getClient()
+    try {
+        let item = null
+        const database = client.db("locationPinger")
+        const collection = database.collection("locations")
+        const lastItem = collection.find().sort({"created_at": -1}).limit(1).next().then(async (doc) => {
+            item = await doc
+            return doc
+        })
+        console.log(lastItem)
+        return lastItem
+    } finally {
+        await client.close();
+    }
+
+}
 export async function saveUser(user) {
     const client = getClient()
     try {
